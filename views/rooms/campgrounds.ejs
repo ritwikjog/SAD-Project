@@ -1,0 +1,32 @@
+<% include ../partials/header %>
+
+<div class="container">
+	<header class="jumbotron">
+		<div class="container">
+			<h1>Welcome to BookRoomsOnline</h1>
+			<p>
+				View all rooms here
+			</p>
+			<p>
+				<a href="/rooms/new" class="btn btn-large btn-primary">Add a new room</a>
+			</p>
+		</div>
+	</header>
+
+	<div class="row text-center" style="display:flex; flex-wrap:wrap">
+		<% rooms.forEach(function(room){%>
+			<div class="col-md-4 col-sm-6" style="padding-bottom:10px;">
+				<div class="card">
+				  <img class="card-img-top" src="<%= room.image %>" alt="Card image cap">
+				  <div class="card-body">
+					<p class="card-text">Name of owner: <%=room.name %></p>
+					<p class="card-text">Location: <%=room.city %></p>
+					<a href="/rooms/<%=room._id%>" class="btn btn-sm btn-success">More Info</a>
+				  </div>
+				</div>
+			</div>
+		<% }); %>
+	</div>
+</div>
+
+<% include ../partials/footer %>
